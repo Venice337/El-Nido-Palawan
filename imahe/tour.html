@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tourist Spots | El Nido Palawan Beach Vibes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Montserrat:wght@400;600&display=swap');
+        body {
+            margin: 0;
+            font-family: 'Montserrat', Arial, sans-serif;
+            background: linear-gradient(135deg, #6dd5ed 0%, #2193b0 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        header {
+            background: linear-gradient(90deg, #6dd5ed 0%, #2193b0 100%);
+            box-shadow: 0 2px 8px rgba(33,147,176,0.10);
+            padding: 0.7rem 0;
+        }
+        .header-content {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 1.5rem;
+        }
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+        }
+        .logo-placeholder {
+            width: 48px;
+            height: 48px;
+            background: #ffe29f;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(247,151,30,0.10);
+        }
+        .logo-placeholder img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .site-title {
+            color: #fff;
+            font-family: 'Pacifico', cursive, Arial, sans-serif;
+            font-size: 1.6rem;
+            letter-spacing: 2px;
+            font-weight: bold;
+            text-shadow: 0 2px 8px rgba(33,147,176,0.10);
+        }
+        nav {
+            display: flex;
+            gap: 1.5rem;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.05rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+            padding: 0.3rem 0.7rem;
+            border-radius: 6px;
+            transition: background 0.2s, color 0.2s;
+        }
+        nav a:hover, nav a.active {
+            background: #ffe29f;
+            color: #2193b0;
+        }
+        main {
+            flex: 1;
+            width: 100%;
+            max-width: 1100px;
+            margin: 2.5rem auto 0 auto;
+            background: rgba(255,255,255,0.95);
+            border-radius: 22px;
+            box-shadow: 0 8px 32px rgba(33,147,176,0.18), 0 2px 8px rgba(255,226,159,0.12);
+            padding: 2.5rem 2rem 2rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        .tour-title {
+            font-family: 'Pacifico', cursive, Arial, sans-serif;
+            color: #2193b0;
+            font-size: 2.2rem;
+            margin-bottom: 1.2rem;
+            letter-spacing: 2px;
+            text-align: center;
+        }
+        .tour-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: center;
+        }
+        .tour-card {
+            background: #e0f7fa;
+            border-radius: 16px;
+            box-shadow: 0 4px 16px rgba(33,147,176,0.10);
+            width: 260px;
+            padding: 1.2rem 1rem 1.5rem 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: transform 0.2s, box-shadow 0.2s;
+            position: relative;
+        }
+        .tour-card:hover {
+            transform: translateY(-6px) scale(1.04);
+            box-shadow: 0 8px 32px rgba(33,147,176,0.18);
+        }
+        .tour-img-placeholder {
+            width: 100%;
+            height: 140px;
+            background: #ffe29f;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #2193b0;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+        .tour-name {
+            font-size: 1.15rem;
+            font-weight: bold;
+            color: #2193b0;
+            margin-bottom: 0.5rem;
+            text-align: center;
+        }
+        .tour-desc {
+            font-size: 0.98rem;
+            color: #444;
+            text-align: center;
+        }
+        /* Decorative palm tree */
+        .palm-bg {
+            position: absolute;
+            right: -60px;
+            bottom: -40px;
+            width: 180px;
+            opacity: 0.13;
+            z-index: 0;
+            pointer-events: none;
+        }
+        footer {
+            background: linear-gradient(90deg, #2193b0 0%, #6dd5ed 100%);
+            color: #fff;
+            text-align: center;
+            padding: 1.2rem 0 1rem 0;
+            font-size: 1rem;
+            letter-spacing: 1px;
+            margin-top: 3rem;
+        }
+        @media (max-width: 700px) {
+            .header-content {
+                flex-direction: column;
+                gap: 0.7rem;
+                align-items: flex-start;
+            }
+            nav {
+                width: 100%;
+                justify-content: flex-start;
+            }
+            main {
+                margin: 1.2rem 0 0 0;
+                padding: 1.2rem 0.5rem 1rem 0.5rem;
+            }
+            .tour-list {
+                gap: 1rem;
+            }
+            .tour-card {
+                width: 100%;
+                max-width: 320px;
+            }
+            .tour-img-placeholder {
+                height: 100px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo-area">
+                <div class="logo-placeholder">
+                   <img src="../imahe/logo.jpg" alt="header-logo">
+                </div>
+                <span class="site-title">El nido Palawan</span>
+            </div>
+            <nav>
+                <a href="../main.html"><i class="fa fa-home"></i> Home</a>
+                <a href="about.html"><i class="fa fa-info-circle"></i> About</a>
+                <a href="news.html"><i class="fa fa-newspaper"></i> News</a>
+                <a href="#" class="active"><i class="fa fa-umbrella-beach"></i> Tour</a>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <img class="palm-bg" src="https://cdn.pixabay.com/photo/2013/07/13/12/46/palm-146425_1280.png" alt="palm tree">
+        <div class="tour-title">Top Tourist Spots in El Nido</div>
+        <div class="tour-list">
+            <div class="tour-card">
+                <div class="tour-img-placeholder">
+                <img src="../imahe/tour3.jpg" alt="big lagoon" style="width:100%; height:100%; object-fit:cover;">
+                </div>
+                <div class="tour-name">Big Lagoon</div>
+                <div class="tour-desc">Famous for its crystal-clear waters and dramatic limestone cliffs. Perfect for kayaking and sightseeing.</div>
+            </div>
+            <div class="tour-card">
+                <div class="tour-img-placeholder">
+                    <img src="tour4.jpg" alt="Small Lagoon" style="width:100%; height:100%; object-fit:cover; border-radius:10px;">
+                </div>
+                <div class="tour-name">Small Lagoon</div>
+                <div class="tour-desc">A hidden paradise surrounded by towering rocks, ideal for swimming and exploring by kayak.</div>
+            </div>
+            <div class="tour-card">
+                <div class="tour-img-placeholder">
+                    <img src="tour5.jpg" alt="Secret Beach" style="width:100%; height:100%; object-fit:cover; border-radius:10px;">
+                </div>
+                <div class="tour-name">Secret Beach</div>
+                <div class="tour-desc">Accessible only by swimming through a small crevice, this secluded spot is a must-see for adventurers.</div>
+            </div>
+            <div class="tour-card">
+                <div class="tour-img-placeholder">
+                   <img src="tour6.jpg" alt="shimizu island" style="width:100%; height:100%; object-fit:cover; border-radius:10px;">
+                </div>
+                <div class="tour-name">Shimizu Island</div>
+                <div class="tour-desc">Known for its white sand beach and vibrant marine life, perfect for snorkeling and picnics.</div>
+            </div>
+            <div class="tour-card">
+                <div class="tour-img-placeholder">
+                    <img src="tour7.jpg" alt="Nacpan beach" style="width:100%; height:100%; object-fit:cover; border-radius:10px;">
+                </div>
+                <div class="tour-name">Nacpan Beach</div>
+                <div class="tour-desc">A long stretch of golden sand and clear waters, ideal for relaxing and enjoying the sunset.</div>
+            </div>
+            <div class="tour-card">
+                <div class="tour-img-placeholder">
+                    <img src="tour8.jpg" alt="snake island" style="width:100%; height:100%; object-fit:cover; border-radius:10px;">
+                </div>
+                <div class="tour-name">Snake Island</div>
+                <div class="tour-desc">Famous for its unique sandbar that appears during low tide, connecting the island to the mainland.</div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        &copy; 2025 El Nido Palawan Beach Vibes. All rights reserved.
+    </footer>
+</body>
+</html>

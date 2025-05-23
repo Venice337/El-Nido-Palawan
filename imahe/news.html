@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News | El Nido Palawan Beach Vibes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Montserrat:wght@400;600&display=swap');
+        body {
+            margin: 0;
+            font-family: 'Montserrat', Arial, sans-serif;
+            background: linear-gradient(135deg, #6dd5ed 0%, #2193b0 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        header {
+            background: linear-gradient(90deg, #6dd5ed 0%, #2193b0 100%);
+            box-shadow: 0 2px 8px rgba(33,147,176,0.10);
+            padding: 0.7rem 0;
+        }
+        .header-content {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 1.5rem;
+        }
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+        }
+        .logo-placeholder {
+            width: 48px;
+            height: 48px;
+            background: #ffe29f;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(247,151,30,0.10);
+        }
+        .logo-placeholder img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .site-title {
+            color: #fff;
+            font-family: 'Pacifico', cursive, Arial, sans-serif;
+            font-size: 1.6rem;
+            letter-spacing: 2px;
+            font-weight: bold;
+            text-shadow: 0 2px 8px rgba(33,147,176,0.10);
+        }
+        nav {
+            display: flex;
+            gap: 1.5rem;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.05rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+            padding: 0.3rem 0.7rem;
+            border-radius: 6px;
+            transition: background 0.2s, color 0.2s;
+        }
+        nav a:hover, nav a.active {
+            background: #ffe29f;
+            color: #2193b0;
+        }
+        main {
+            flex: 1;
+            width: 100%;
+            max-width: 1000px;
+            margin: 2.5rem auto 0 auto;
+            background: rgba(255,255,255,0.95);
+            border-radius: 22px;
+            box-shadow: 0 8px 32px rgba(33,147,176,0.18), 0 2px 8px rgba(255,226,159,0.12);
+            padding: 2.5rem 2rem 2rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        .news-title {
+            font-family: 'Pacifico', cursive, Arial, sans-serif;
+            color: #2193b0;
+            font-size: 2.2rem;
+            margin-bottom: 1.2rem;
+            letter-spacing: 2px;
+            text-align: center;
+        }
+        .news-list {
+            display: flex;
+            flex-direction: column;
+            gap: 2.2rem;
+        }
+        .news-card {
+            background: #e0f7fa;
+            border-radius: 14px;
+            box-shadow: 0 2px 8px rgba(33,147,176,0.10);
+            padding: 1.2rem 1.5rem;
+            display: flex;
+            gap: 1.5rem;
+            align-items: flex-start;
+            position: relative;
+            transition: background 0.2s, transform 0.2s;
+        }
+        .news-card:hover {
+            background: #ffe29f;
+            transform: translateY(-4px) scale(1.02);
+        }
+        .news-img {
+            width: 160px;
+            height: 110px;
+            border-radius: 10px;
+            object-fit: cover;
+            background: #ffe29f;
+            flex-shrink: 0;
+            box-shadow: 0 2px 8px rgba(247,151,30,0.10);
+        }
+        .news-content {
+            flex: 1;
+        }
+        .news-headline {
+            font-size: 1.18rem;
+            font-weight: bold;
+            color: #2193b0;
+            margin-bottom: 0.4rem;
+        }
+        .news-date {
+            font-size: 0.95rem;
+            color: #888;
+            margin-bottom: 0.7rem;
+        }
+        .news-desc {
+            font-size: 1rem;
+            color: #444;
+            line-height: 1.6;
+        }
+        .news-link {
+            display: inline-block;
+            margin-top: 0.7rem;
+            color: #2193b0;
+            font-size: 0.98rem;
+            text-decoration: underline;
+            transition: color 0.2s;
+        }
+        .news-link:hover {
+            color: #f7971e;
+        }
+        /* Decorative palm tree */
+        .palm-bg {
+            position: absolute;
+            right: -60px;
+            bottom: -40px;
+            width: 180px;
+            opacity: 0.13;
+            z-index: 0;
+            pointer-events: none;
+        }
+        footer {
+            background: linear-gradient(90deg, #2193b0 0%, #6dd5ed 100%);
+            color: #fff;
+            text-align: center;
+            padding: 1.2rem 0 1rem 0;
+            font-size: 1rem;
+            letter-spacing: 1px;
+            margin-top: 3rem;
+        }
+        @media (max-width: 700px) {
+            .header-content {
+                flex-direction: column;
+                gap: 0.7rem;
+                align-items: flex-start;
+            }
+            nav {
+                width: 100%;
+                justify-content: flex-start;
+            }
+            main {
+                margin: 1.2rem 0 0 0;
+                padding: 1.2rem 0.5rem 1rem 0.5rem;
+            }
+            .news-card {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+            .news-img {
+                width: 100%;
+                max-width: 220px;
+                height: 120px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo-area">
+                <div class="logo-placeholder">
+                   <img src="../imahe/logo.jpg" alt="header-logo">
+                </div>
+                <span class="site-title">El nido Palawan</span>
+            </div>
+            <nav>
+                <a href="../main.html"><i class="fa fa-home"></i> Home</a>
+                <a href="about.html"><i class="fa fa-info-circle"></i> About</a>
+                <a href="#" class="active"><i class="fa fa-newspaper"></i> News</a>
+                <a href="tour.html"><i class="fa fa-umbrella-beach"></i> Tour</a>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <img class="palm-bg" src="https://cdn.pixabay.com/photo/2013/07/13/12/46/palm-146425_1280.png" alt="palm tree">
+        <div class="news-title">Latest News & Updates About El Nido</div>
+        <div class="news-list">
+            <div class="news-card">
+                <img class="news-img" src="https://media.philstar.com/photos/2023/07/17/el-nido-palawan_2023-07-17_21-15-32.jpg" alt="El Nido News 1">
+                <div class="news-content">
+                    <div class="news-headline">El Nido Among Top 10 Most Beautiful Beaches in the World</div>
+                    <div class="news-date"><i class="fa fa-calendar"></i> July 2023</div>
+                    <div class="news-desc">
+                        El Nido, Palawan, has been recognized by international travel magazines as one of the world's most beautiful beach destinations, thanks to its stunning limestone cliffs and turquoise waters.
+                    </div>
+                    <a class="news-link" href="https://www.philstar.com/lifestyle/travel-and-tourism/2023/07/17/2281812/el-nido-palawan-named-among-worlds-most-beautiful-beaches" target="_blank">Read more</a>
+                </div>
+            </div>
+            <div class="news-card">
+                <img class="news-img" src="https://www.rappler.com/tachyon/2023/06/el-nido-palawan.jpg" alt="El Nido News 2">
+                <div class="news-content">
+                    <div class="news-headline">El Nido Implements Sustainable Tourism Initiatives</div>
+                    <div class="news-date"><i class="fa fa-calendar"></i> June 2023</div>
+                    <div class="news-desc">
+                        The local government of El Nido has launched new eco-friendly policies to protect its natural resources, including stricter waste management and sustainable tour operations.
+                    </div>
+                    <a class="news-link" href="https://www.rappler.com/life-and-style/travel/eco-friendly-tourism-el-nido-palawan/" target="_blank">Read more</a>
+                </div>
+            </div>
+            <div class="news-card">
+                <img class="news-img" src="https://media.cnn.com/api/v1/images/stellar/prod/230314110022-01-el-nido-palawan-philippines.jpg?c=original" alt="El Nido News 3">
+                <div class="news-content">
+                    <div class="news-headline">CNN Travel: El Nido, A Must-Visit Philippine Paradise</div>
+                    <div class="news-date"><i class="fa fa-calendar"></i> March 2023</div>
+                    <div class="news-desc">
+                        CNN Travel features El Nido as a must-visit destination in the Philippines, highlighting its breathtaking lagoons, vibrant marine life, and world-class island hopping.
+                    </div>
+                    <a class="news-link" href="https://edition.cnn.com/travel/article/el-nido-palawan-philippines/index.html" target="_blank">Read more</a>
+                </div>
+            </div>
+            <div class="news-card">
+                <img class="news-img" src="https://www.spot.ph/images2/2022/07/21/el-nido-palawan-1658380036.jpg" alt="El Nido News 4">
+                <div class="news-content">
+                    <div class="news-headline">El Nido Tourism Surges as Travel Restrictions Ease</div>
+                    <div class="news-date"><i class="fa fa-calendar"></i> February 2023</div>
+                    <div class="news-desc">
+                        With the easing of travel restrictions, El Nido sees a surge in both local and foreign tourists, boosting the local economy and tourism sector.
+                    </div>
+                    <a class="news-link" href="https://www.spot.ph/newsfeatures/the-latest-news-features/90008/el-nido-palawan-tourism-surge-a5229-20220721" target="_blank">Read more</a>
+                </div>
+            </div>
+            <div class="news-card">
+                <img class="news-img" src="https://www.travel-palawan.com/wp-content/uploads/2021/09/El-Nido-Palawan-Philippines.jpg" alt="El Nido News 5">
+                <div class="news-content">
+                    <div class="news-headline">El Nido Launches New Island Hopping Routes</div>
+                    <div class="news-date"><i class="fa fa-calendar"></i> January 2023</div>
+                    <div class="news-desc">
+                        New island hopping routes have been introduced, allowing tourists to explore more hidden gems and less crowded beaches in El Nido.
+                    </div>
+                    <a class="news-link" href="https://www.travel-palawan.com/news/el-nido-launches-new-island-hopping-routes/" target="_blank">Read more</a>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        &copy; 2025 El Nido Palawan Beach Vibes. All rights reserved.
+    </footer>
+</body>
+</html>

@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Nido Palawan | Beach Vibes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Montserrat:wght@400;600&display=swap');
+        body {
+            margin: 0;
+            font-family: 'Montserrat', Arial, sans-serif;
+            background: linear-gradient(135deg, #6dd5ed 0%, #2193b0 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        header {
+            background: linear-gradient(90deg, #6dd5ed 0%, #2193b0 100%);
+            box-shadow: 0 2px 8px rgba(33,147,176,0.10);
+            padding: 0.7rem 0;
+        }
+        .header-content {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 1.5rem;
+        }
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+        }
+        .logo-placeholder {
+            width: 48px;
+            height: 48px;
+            background: #ffe29f;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(247,151,30,0.10);
+        }
+        .logo-placeholder img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .site-title {
+            color: #fff;
+            font-family: 'Pacifico', cursive, Arial, sans-serif;
+            font-size: 1.6rem;
+            letter-spacing: 2px;
+            font-weight: bold;
+            text-shadow: 0 2px 8px rgba(33,147,176,0.10);
+        }
+        nav {
+            display: flex;
+            gap: 1.5rem;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.05rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+            padding: 0.3rem 0.7rem;
+            border-radius: 6px;
+            transition: background 0.2s, color 0.2s;
+        }
+        nav a:hover, nav a.active {
+            background: #ffe29f;
+            color: #2193b0;
+        }
+        .logout-btn {
+            background: #f7971e;
+            color: #fff !important;
+            margin-left: auto;
+            font-weight: bold;
+            border-radius: 6px;
+            padding: 0.3rem 1rem;
+            transition: background 0.2s, color 0.2s;
+        }
+        .logout-btn:hover {
+            background: #ffd200;
+            color: #2193b0 !important;
+        }
+        main {
+            flex: 1;
+            width: 100%;
+        }
+        /* Hero Section */
+        .hero-section {
+            max-width: 1100px;
+            margin: 2.5rem auto 0 auto;
+            background: rgba(255,255,255,0.95);
+            border-radius: 22px;
+            box-shadow: 0 8px 32px rgba(33,147,176,0.18), 0 2px 8px rgba(255,226,159,0.12);
+            padding: 2.5rem 2rem 2rem 2rem;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 2.5rem;
+            overflow: hidden;
+        }
+        .hero-text {
+            flex: 1 1 320px;
+            min-width: 260px;
+        }
+        .hero-title {
+            font-family: 'Pacifico', cursive, Arial, sans-serif;
+            color: #2193b0;
+            font-size: 2.5rem;
+            margin-bottom: 0.7rem;
+            letter-spacing: 2px;
+        }
+        .hero-desc {
+            font-size: 1.15rem;
+            color: #444;
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+        .hero-btn {
+            background: linear-gradient(90deg, #f7971e 0%, #ffd200 100%);
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+            padding: 0.8rem 2.2rem;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(247,151,30,0.10);
+            transition: background 0.2s, color 0.2s, transform 0.2s;
+        }
+        .hero-btn:hover {
+            background: linear-gradient(90deg, #ffd200 0%, #f7971e 100%);
+            color: #2193b0;
+            transform: translateY(-2px) scale(1.03);
+        }
+        .hero-img-area {
+            flex: 1 1 320px;
+            min-width: 260px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .hero-img-placeholder {
+            width: 320px;
+            height: 220px;
+            border-radius: 18px;
+            background: #ffe29f;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #2193b0;
+            font-size: 1.2rem;
+            font-weight: 600;
+            box-shadow: 0 4px 24px rgba(33,147,176,0.13);
+            border: 4px solid #ffe29f;
+        }
+        /* Category Section */
+        .category-section {
+            max-width: 1100px;
+            margin: 2.5rem auto 0 auto;
+            padding: 0 2rem;
+        }
+        .category-title {
+            font-family: 'Pacifico', cursive, Arial, sans-serif;
+            color: #2193b0;
+            font-size: 2rem;
+            margin-bottom: 1.2rem;
+            letter-spacing: 1px;
+            text-align: center;
+        }
+        .categories {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: center;
+        }
+        .category-card {
+            background: rgba(255,255,255,0.95);
+            border-radius: 16px;
+            box-shadow: 0 4px 16px rgba(33,147,176,0.10);
+            width: 220px;
+            padding: 1.2rem 1rem 1.5rem 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .category-card:hover {
+            transform: translateY(-6px) scale(1.04);
+            box-shadow: 0 8px 32px rgba(33,147,176,0.18);
+        }
+        .category-img-placeholder {
+            width: 100%;
+            height: 110px;
+            background: #ffe29f;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #2193b0;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+        .category-name {
+            font-size: 1.15rem;
+            font-weight: bold;
+            color: #2193b0;
+            margin-bottom: 0.5rem;
+            text-align: center;
+        }
+        .category-desc {
+            font-size: 0.98rem;
+            color: #444;
+            text-align: center;
+        }
+        /* Footer */
+        footer {
+            background: linear-gradient(90deg, #2193b0 0%, #6dd5ed 100%);
+            color: #fff;
+            text-align: center;
+            padding: 1.2rem 0 1rem 0;
+            font-size: 1rem;
+            letter-spacing: 1px;
+            margin-top: 3rem;
+        }
+        @media (max-width: 900px) {
+            .hero-section {
+                flex-direction: column;
+                gap: 1.5rem;
+                padding: 2rem 1rem 1.5rem 1rem;
+            }
+            .hero-img-placeholder {
+                width: 100%;
+                max-width: 320px;
+                height: 180px;
+            }
+            .category-section {
+                padding: 0 1rem;
+            }
+        }
+        @media (max-width: 700px) {
+            .header-content {
+                flex-direction: column;
+                gap: 0.7rem;
+                align-items: flex-start;
+            }
+            nav {
+                width: 100%;
+                justify-content: flex-start;
+            }
+            .hero-section {
+                margin: 1.2rem 0 0 0;
+                padding: 1.2rem 0.5rem 1rem 0.5rem;
+            }
+            .category-section {
+                margin: 1.2rem 0 0 0;
+            }
+            .categories {
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo-area">
+                <div class="logo-placeholder">
+                   <img src="imahe/logo.jpg" alt="header-logo">
+                </div>
+                <span class="site-title">El nido Palawan</span>
+            </div>
+            <!-- Example for about.html, news.html, tour.html -->
+            <nav>
+                <a href="main.html"><i class="fa fa-home"></i> Home</a>
+                <a href="imahe/about.html"><i class="fa fa-info-circle"></i> About</a>
+                <a href="imahe/news.html"><i class="fa fa-newspaper"></i> News</a>
+                <a href="imahe/tour.html"><i class="fa fa-umbrella-beach"></i> Tour</a>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="hero-text">
+                <div class="hero-title">Welcome to El Nido, Palawan</div>
+                <div class="hero-desc">
+                    Discover the breathtaking beauty of El Nido, where turquoise waters, limestone cliffs, and powdery white sands await. Whether you're seeking adventure, relaxation, or a taste of island culture, El Nido is your perfect tropical escape.
+                </div>
+                <button class="hero-btn"><i class="fa fa-umbrella-beach"></i> Book a Tour</button>
+            </div>
+            <div class="hero-img-area">
+                <div class="hero-img-placeholder">
+                    <img src="imahe/beach1.jpg" alt="heroimg" style="width:100%; height:100%; object-fit:cover; border-radius:14px;">
+                </div>
+            </div>
+        </section>
+        <!-- Category Section -->
+        <section class="category-section">
+            <div class="category-title">Explore Categories</div>
+            <div class="categories">
+                <div class="category-card">
+                    <div class="category-img-placeholder">
+                        <img src="imahe/beach2.jpg" alt="beach2" style="width:100%; height:100%; object-fit:cover; border-radius:8px;">
+                    </div>
+                    <div class="category-name">Beaches</div>
+                    <div class="category-desc">Experience the world-famous white sand beaches and crystal-clear waters of El Nido.</div>
+                </div>
+                <div class="category-card">
+                    <div class="category-img-placeholder">
+                        <img src="imahe/beach3.jpg" alt="beach3" style="width:100%; height:100%; object-fit:cover; border-radius:8px;">
+                    </div>
+                    <div class="category-name">Island Hopping</div>
+                    <div class="category-desc">Hop from one paradise island to another and discover hidden lagoons and secret beaches.</div>
+                </div>
+                <div class="category-card">
+                    <div class="category-img-placeholder">
+                        <img src="imahe/beach4.jpg" alt="beach4" style="width:100%; height:100%; object-fit:cover; border-radius:8px;">
+                    </div>
+                    <div class="category-name">Adventure</div>
+                    <div class="category-desc">Go kayaking, snorkeling, or hiking and enjoy the thrill of Palawan’s natural wonders.</div>
+                </div>
+                <div class="category-card">
+                    <div class="category-img-placeholder">
+                    <img src="imahe/beach5.jpg" alt="beach5" style="width:100%; height:100%; object-fit:cover; border-radius:8px;">
+                    </div>
+                    <div class="category-name">Local Cuisine</div>
+                    <div class="category-desc">Taste the flavors of Palawan with fresh seafood and local delicacies.</div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        &copy; 2025 El Nido Palawan Beach Vibes. All rights reserved.
+    </footer>
+</body>
+</html>

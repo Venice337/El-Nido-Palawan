@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login Form</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+        body {
+            background: linear-gradient(135deg, #6dd5ed 0%, #2193b0 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            margin: 0;
+            position: relative;
+        }
+        body::after {
+            content: "";
+            position: absolute;
+            left: 0; right: 0; bottom: 0;
+            height: 180px;
+            background: linear-gradient(to top, #ffe29f 0%, rgba(255,255,255,0) 100%);
+            z-index: 0;
+            pointer-events: none;
+        }
+        .login-container {
+            background: rgba(255,255,255,0.95);
+            padding: 2rem 2.5rem;
+            border-radius: 18px;
+            box-shadow: 0 8px 32px rgba(33,147,176,0.18), 0 2px 8px rgba(255,226,159,0.12);
+            width: 100%;
+            max-width: 340px;
+            box-sizing: border-box;
+            min-width: 260px;
+            margin: 0 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+        }
+        .login-container::before {
+            content: "";
+            position: absolute;
+            top: -40px; right: -40px;
+            width: 120px; height: 120px;
+            background: url('https://cdn.pixabay.com/photo/2013/07/13/12/46/palm-146425_1280.png') no-repeat center/contain;
+            opacity: 0.18;
+            pointer-events: none;
+            z-index: 2;
+        }
+        .login-container h2 {
+            text-align: center;
+            margin-bottom: 1.5rem;
+            color: #2193b0;
+            font-family: 'Pacifico', cursive, Arial, sans-serif;
+            letter-spacing: 1px;
+            font-size: 2rem;
+        }
+        .input-group {
+            position: relative;
+            margin-bottom: 1.2rem;
+        }
+        .input-group input {
+            width: 100%;
+            padding: 0.75rem 2.5rem 0.75rem 2.5rem;
+            border: 1.5px solid #6dd5ed;
+            border-radius: 8px;
+            outline: none;
+            font-size: 1rem;
+            box-sizing: border-box;
+            display: block;
+            margin: 0;
+            background: rgba(255,255,255,0.85);
+            transition: border 0.2s;
+        }
+        .input-group input:focus {
+            border: 1.5px solid #2193b0;
+            background: #e0f7fa;
+        }
+        .input-group .fa-user,
+        .input-group .fa-lock {
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #2193b0;
+            opacity: 0.7;
+        }
+        .input-group .fa-eye,
+        .input-group .fa-eye-slash {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #2193b0;
+            cursor: pointer;
+            opacity: 0.7;
+        }
+        .login-btn {
+            width: 100%;
+            padding: 0.75rem;
+            background: linear-gradient(90deg, #f7971e 0%, #ffd200 100%);
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            margin-top: 0.5rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+            box-shadow: 0 2px 8px rgba(247,151,30,0.10);
+            transition: background 0.2s, color 0.2s;
+        }
+        .login-btn:hover {
+            background: linear-gradient(90deg, #ffd200 0%, #f7971e 100%);
+            color: #2193b0;
+        }
+        .error-message {
+            color: #d9534f;
+            text-align: center;
+            margin-bottom: 1rem;
+            display: none;
+            background: rgba(255,255,255,0.7);
+            border-radius: 5px;
+            padding: 0.5rem 0;
+            font-weight: bold;
+            border: 1px solid #ffd200;
+        }
+        .logo-title {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.8rem;
+            margin-bottom: 1.5rem;
+        }
+        .logo-placeholder {
+            width: 48px;
+            height: 48px;
+            background: #ffe29f;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(247,151,30,0.10);
+        }
+        .logo-placeholder img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <div class="logo-title">
+            <div class="logo-placeholder">
+               <img src="imahe/logo.jpg" alt="form-logo">
+            </div>
+            <h2>Login</h2>
+        </div>
+        <div class="error-message" id="errorMsg">Invalid username or password.</div>
+        <form id="loginForm" autocomplete="off">
+            <div class="input-group">
+                <i class="fa fa-user"></i>
+                <input type="text" id="username" placeholder="Username" required>
+            </div>
+            <div class="input-group">
+                <i class="fa fa-lock"></i>
+                <input type="password" id="password" placeholder="Password" required>
+                <i class="fa fa-eye" id="togglePassword"></i>
+            </div>
+            <button type="submit" class="login-btn">Login</button>
+        </form>
+    </div>
+    <script>
+        // Built-in credentials
+        const BUILT_IN_USERNAME = "admin";
+        const BUILT_IN_PASSWORD = "angelmae";
+
+        // Toggle password visibility
+        const passwordInput = document.getElementById('password');
+        const togglePassword = document.getElementById('togglePassword');
+        togglePassword.addEventListener('click', function () {
+            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordInput.setAttribute('type', type);
+            this.classList.toggle('fa-eye');
+            this.classList.toggle('fa-eye-slash');
+        });
+
+        // Handle login
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const errorMsg = document.getElementById('errorMsg');
+            if (username === BUILT_IN_USERNAME && password === BUILT_IN_PASSWORD) {
+                errorMsg.style.display = 'none';
+                // Redirect to main.html
+                window.location.href = "main.html";
+            } else {
+                errorMsg.style.display = 'block';
+            }
+        });
+    </script>
+</body>
+</html>
